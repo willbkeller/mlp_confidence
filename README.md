@@ -1,2 +1,11 @@
 # Confidence in the Decisions of MLPs
-	Testing
+This repository is based on the work done in [Addressing Failure Prediction by Learning Model Confidence](https://github.com/valeoai/ConfidNet) authored by [Charles Corbière](https://chcorbi.github.io), [Nicolas Thome](http://cedric.cnam.fr/~thomen/), [Avner Bar-Hen](https://ab-h.github.io/), [Matthieu Cord](http://webia.lip6.fr/~cord/), and [Patrick Pérez](https://ptrckprz.github.io/). Some of the code in this repository was from their repository.\
+\
+The ConfidNet metric helps to better understand, in part, the confidence a neural network has in its decisions. More specifically, the confidence it has in its erroneous decisions (denoted by average precision error). In other words, is determines the confidence a neural network has that a decision it is about to make is incorrect so that human intervention, or some other override plan can take over. This work further explores the work done in the mentioned paper by determining the confidence of a neural networks, not just as a whole, but for each individual class to see if there are outlying classes who's errors are harder for the model to detect. Deeper networks are also explored in this project to see if that has any kind of impact on the results. This project uses an MLP with the MNIST data set.
+
+## Training and Testing
+In order to train the ConfidNet MLP, corresponding base MLP must first be trained over a specified number of epochs, and the weights from the epoch with the highest accuracy are saved. These weights are then loaded and frozen into the ConfidNet MLP which is then trained over a specified number of epochs. The weights are frozen so that accuracy is not affected as noted in the paper linked in the [ConfidNet Repository](https://github.com/valeoai/ConfidNet). The weights from the epochs with the best error score are saved from this model. The ConfidNet MLP can then be tested and will return the overall average precision error, as well as the average precision error score for each class.
+
+## Results
+The results showed that as the layers increased in the MLP, the less accurate it became in determining incorrect decisions. The results can be viewed in further detail in the following paper.\
+[Keller_MLP_Confidence.pdf](https://github.com/willbkeller/mlp_confidence/files/10387836/Keller_MLP_Confidence.pdf)
