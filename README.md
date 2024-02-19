@@ -6,6 +6,3 @@ The ConfidNet metric helps to better understand, in part, the confidence a neura
 ## Training and Testing
 In order to train the ConfidNet MLP, corresponding base MLP must first be trained over a specified number of epochs, and the weights from the epoch with the highest accuracy are saved. These weights are then loaded and frozen into the ConfidNet MLP which is then trained over a specified number of epochs. The weights are frozen so that accuracy is not affected as noted in the paper linked in the [ConfidNet Repository](https://github.com/valeoai/ConfidNet). The weights from the epochs with the best error score are saved from this model. The ConfidNet MLP can then be tested and will return the overall average precision error, as well as the average precision error score for each class.
 
-## Results
-The results showed that as the layers increased in the MLP, the less accurate it became in determining incorrect decisions. The results can be viewed in further detail in the following paper.\
-[Keller_MLP_Confidence.pdf](https://github.com/willbkeller/mlp_confidence/files/10387836/Keller_MLP_Confidence.pdf)
